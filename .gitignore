@@ -95,7 +95,7 @@ ipython_config.py
 __pypackages__/
 
 # Celery stuff
-celerybeat-schedule
+celerybeat-schedules
 celerybeat.pid
 
 # SageMath parsed files
@@ -127,3 +127,28 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Dproject2/Admin/__pycache__/__init__.cpython-38.pyc
+Dproject2/Admin/__pycache__/admin.cpython-38.pyc
+Dproject2/Admin/__pycache__/models.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/__init__.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0001_initial.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0002_auto_20200416_0025.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0003_auto_20200416_0029.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0004_auto_20200417_1427.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0005_auto_20200417_1427.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0006_auto_20200417_1428.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0007_auto_20200417_1441.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0008_auto_20200417_1708.cpython-38.pyc
+Dproject2/Admin/migrations/__pycache__/0009_auto_20200417_1815.cpython-38.pyc
+Dproject2/Dproject2/__pycache__/__init__.cpython-38.pyc
+Dproject2/Dproject2/__pycache__/settings.cpython-38.pyc
+Dproject2/Dproject2/__pycache__/urls.cpython-38.pyc
+Dproject2/Dproject2/__pycache__/wsgi.cpython-38.pyc
+Dproject2/customer/__pycache__/__init__.cpython-38.pyc
+Dproject2/customer/__pycache__/admin.cpython-38.pyc
+Dproject2/customer/__pycache__/models.cpython-38.pyc
+Dproject2/customer/__pycache__/urls.cpython-38.pyc
+Dproject2/customer/__pycache__/views.cpython-38.pyc
+Dproject2/customer/migrations/__pycache__/__init__.cpython-38.pyc
+Dproject2/customer/templatetags/__pycache__/__init__.cpython-38.pyc
+Dproject2/customer/templatetags/__pycache__/extra_templates.cpython-38.pyc
