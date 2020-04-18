@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src=" {% static "js/dropDown.js" %}" >
+    </script>
+    <script src="{% static "js/slideShow.js" %}">
+    </script>
+    <script src="{% static "js/script.js" %}" charset="utf-8"></script>
+    <script src="{% static "js/subcategories_script.js" %}">
+
+    </script>
+    <title>Doorakart</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="LandingPage_CSS.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static "css/LandingPage_CSS.css" %}">
+    <link rel="stylesheet" href="{% static "css/mostPopular.css" %}">
+
+  <style>
+  .MultiCarousel {
+    float: left;
+    overflow: hidden;
+    padding: 15px;
+    width: 100%;
+    position:relative;
+  }
+  .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+      .MultiCarousel .MultiCarousel-inner .item {
+         float: left;
+        // -webkit-transition: all 1s ease; /* Safari and Chrome */
+        // -moz-transition: all 1s ease; /* Firefox */
+        // -o-transition: all 1s ease; /* IE 9 */
+        //-ms-transition: all 1s ease; /* Opera */
+        // transition: all 1s ease;}
+        //.MultiCarousel .MultiCarousel-inner .item:hover {
+        //   //border: 1px solid #777;
+        //   //opacity: 0.5;
+        //   overflow: hidden;
+        //   transition: transform .5s ease;
+
+        //   -webkit-transform:scale(1.15); /* Safari and Chrome */
+        //    -moz-transform:scale(1.15); /* Firefox */
+        //    -ms-transform:scale(1.15); /* IE 9 */
+        //    -o-transform:scale(1.15); /* Opera */
+        //     transform:scale(1.15);
+         }
+      .MultiCarousel .MultiCarousel-inner .item > div { text-align: center;margin-right: 25px; margin-left: 25px;padding:5px;  background:#f1f1f1; color:#666;}
+  .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+  .MultiCarousel .leftLst { left:0; }
+  .MultiCarousel .rightLst { right:0; }
+
+      .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+  </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light" id="navbar" style="height:10ex">
+      <a class="navbar-brand" id='brandText' href="#">
+        <strong>DooraKart</strong>
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+
+      <div class="btn-group">
+
+        <a class="nav-link" id="catButton" href="#categoryHeading" style=" radius:2px; border-radius:4px;margin-left:5px;">Categories</a>
+
+
+      </div>
+    </ul>
+    <ul class="navbar-nav navbar-right">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" onclick="profileDrop()" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="media/images/icons8-user-48.png" width="30" height="30" alt="Profile">
+          Profile
+        </a>
+        <div id="profileDropdown" class="dropdown-menu" aria-labelledby="dropdown04">
+          <a class="dropdown-item" href="#">Order History</a>
+          <a class="dropdown-item" href="#">Referral Code</a>
+          <a class="dropdown-item" href="#">Wallet</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span class="container">
+        <a class="nav-link " href="#">
+          <img src="media/images/Doorakart icon.png" width="30" height="30" alt="Cart">
+
+        </a>
+        </span>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+
+<div class="jumbotron" style="height: 540px">
+  <div class="text-block">
+    <center>
+    <p> <h1></h1>
+    </p>
+  </center>
+  </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="MultiCarousel" data-items="1,3,3,4" data-slide="3" id="MultiCarousel"  data-interval="1000">
+            <div class="MultiCarousel-inner">
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body" style="text-align:center;">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div>  <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div>  <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div>  <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div>  <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div>  <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div>  <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div> <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div> <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div> <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="card">
+                    <img src="media/images/apple.jpg" alt="img" class="card-img-top">
+                    <div class="card-body">
+                      <h5>Product Name</h5>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Quantity
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                          <li><a href="#">1 Kg</a></li>
+                          <li><a href="#">200 gm</a></li>
+                          <li><a href="#">4 pc.</a></li>
+                        </ul>
+                      </div> <br>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <button class="btn btn-primary leftLst"><</button>
+            <button class="btn btn-primary rightLst">></button>
+        </div>
+	</div>
+</div>
+<script>
+  $(document).ready(function () {
+      var itemsMainDiv = ('.MultiCarousel');
+      var itemsDiv = ('.MultiCarousel-inner');
+      var itemWidth = "";
+
+      $('.leftLst, .rightLst').click(function () {
+          var condition = $(this).hasClass("leftLst");
+          if (condition)
+              click(0, this);
+          else
+              click(1, this)
+      });
+
+      ResCarouselSize();
+
+
+
+
+      $(window).resize(function () {
+          ResCarouselSize();
+      });
+
+      //this function define the size of the items
+      function ResCarouselSize() {
+          var incno = 0;
+          var dataItems = ("data-items");
+          var itemClass = ('.item');
+          var id = 0;
+          var btnParentSb = '';
+          var itemsSplit = '';
+          var sampwidth = $(itemsMainDiv).width();
+          var bodyWidth = $('body').width();
+          $(itemsDiv).each(function () {
+              id = id + 1;
+              var itemNumbers = $(this).find(itemClass).length;
+              btnParentSb = $(this).parent().attr(dataItems);
+              itemsSplit = btnParentSb.split(',');
+              $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+              if (bodyWidth >= 1200) {
+                  incno = itemsSplit[3];
+                  itemWidth = sampwidth / incno;
+              }
+              else if (bodyWidth >= 992) {
+                  incno = itemsSplit[2];
+                  itemWidth = sampwidth / incno;
+              }
+              else if (bodyWidth >= 768) {
+                  incno = itemsSplit[1];
+                  itemWidth = sampwidth / incno;
+              }
+              else {
+                  incno = itemsSplit[0];
+                  itemWidth = sampwidth / incno;
+              }
+              $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+              $(this).find(itemClass).each(function () {
+                  $(this).outerWidth(itemWidth);
+              });
+
+              $(".leftLst").addClass("over");
+              $(".rightLst").removeClass("over");
+
+          });
+      }
+
+
+      //this function used to move the items
+      function ResCarousel(e, el, s) {
+          var leftBtn = ('.leftLst');
+          var rightBtn = ('.rightLst');
+          var translateXval = '';
+          var divStyle = $(el + ' ' + itemsDiv).css('transform');
+          var values = divStyle.match(/-?[\d\.]+/g);
+          var xds = Math.abs(values[4]);
+          if (e == 0) {
+              translateXval = parseInt(xds) - parseInt(itemWidth * s);
+              $(el + ' ' + rightBtn).removeClass("over");
+
+              if (translateXval <= itemWidth / 2) {
+                  translateXval = 0;
+                  $(el + ' ' + leftBtn).addClass("over");
+              }
+          }
+          else if (e == 1) {
+              var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+              translateXval = parseInt(xds) + parseInt(itemWidth * s);
+              $(el + ' ' + leftBtn).removeClass("over");
+
+              if (translateXval >= itemsCondition - itemWidth / 2) {
+                  translateXval = itemsCondition;
+                  $(el + ' ' + rightBtn).addClass("over");
+              }
+          }
+          $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+      }
+
+      //It is used to get some elements from btn
+      function click(ell, ee) {
+          var Parent = "#" + $(ee).parent().attr("id");
+          var slide = $(Parent).attr("data-slide");
+          ResCarousel(ell, Parent, slide);
+      }
+
+  });
+</script>
+<br><br>
+
+<div class="container2">
+    <div class="container" style="width:100%" >
+      <div class="row" id="catTable" style="width: 100%">
+        <input type="hidden" name="csrfmiddlewaretoken" value="">
+        <div class="col-lg-4 col-md-6 col-xl-3 gallery subcategories" data-id = 'Fruits and Vegetables'><a href='#replace_me'><img id="im_veg" src="media/images/vegetables-background-hd-2560x2048-114694.jpg" alt="Fruits and Vegetables" class="img-thumbnail"></a><div class="desc">Fruits and Vegetables</div></div>
+        <div class="col-lg-4 col-md-6 col-xl-3 gallery subcategories" data-id = 'Groceries'><a href="#replace_me"><img id="im_gro" src="media/images/Groceries.jpg" alt="Groceries" class="img-thumbnail"></a><div class="desc">Groceries</div></div>
+        <div class="col-lg-4 col-md-6 col-xl-3 gallery subcategories" data-id = 'Dairy Products'><a href="#replace_me"><img id="im_dairy" src="media/images/Dairy.jpg" alt="Dairy Products" class="img-thumbnail"></a><div class="desc">Dairy Products</div></div>
+        <div class="col-lg-4 col-md-6 col-xl-3 gallery subcategories" data-id = 'Cleaning and Household'><a href="#replace_me"><img id="im_cleaning" src="media/images/12.jpeg" alt="Cleaning and Household Products" class="img-thumbnail"></a><div class="desc">Cleaning and Household Products</div></div>
+        <div class="col-lg-4 col-md-6 col-xl-3 gallery subcategories" data-id = 'Personal Hygiene and Care'><a href="#replace_me"><img id="im_hygiene" src="media/images/hygiene and personal care.png" alt="Hygiene and Personal Care Products" class="img-thumbnail"></a><div class="desc">Hygiene and Personal Care Products</div></div>
+        <div class="col-lg-4 col-md-6 col-xl-3 gallery subcategories" data-id = 'Food and Beverages'><a href="#replace_me"><img id="im_food" src="media/images/beverages.jpg" alt="Food and Beverages" class="img-thumbnail"></a><div class="desc"> Food and Beverages</div></div>
+      </div>
+  </div>
+  <div class="modal fade" id="contactModal" role="dialog" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Contact Information</h4>
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Email:<br>
+             Phone Number:</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <div id="replace_me" class="container">
+
+  </div>
+
+
+
+  </body>
+</html>

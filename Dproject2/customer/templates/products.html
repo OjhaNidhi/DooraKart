@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="dropDown.js">
+    </script>
+    <script src="slideShow.js">
+    </script>
+    <script src="script.js" charset="utf-8"></script>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/productCSS.css" %}">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="{% static "js/filter_script.js" %}"></script>
+    <script src="{% static "js/products_script.js" %}"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light" id="navbar" style="height:10ex">
+      <a class="navbar-brand" id='brandText' href="#" style="position:relative;   left:80px;">
+        <strong>DooraKart</strong>
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+
+      <div class="btn-group" style=" left:120px;">
+
+        <a class="nav-link" id="catButton" href="#categoryHeading" >Categories</a>
+
+
+      </div>
+    </ul>
+    <ul class="navbar-nav navbar-right">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" onclick="profileDrop()" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="../../media/images/icons8-user-48.png" width="30" height="30" alt="Profile">
+          Profile
+        </a>
+        <div id="profileDropdown" class="dropdown-menu" aria-labelledby="dropdown04">
+          <a class="dropdown-item" href="#">Order History</a>
+          <a class="dropdown-item" href="#">Referral Code</a>
+          <a class="dropdown-item" href="#">Wallet</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span class="container">
+        <a class="nav-link " href="#">
+          <img src="../../media/images/Doorakart icon.png" width="30" height="30" alt="Cart">
+
+        </a>
+        </span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div id="myBtnContainer" style="margin:5px; padding:5px; ">
+  <strong>FILTER : </strong>
+  <button class="btn .btn-primary-outline filter" id="all"> Show All</button>
+  <button class="btn filter" id="Fruits and Vegetables" > Fruits and Vegetables </button>
+  <button class="btn filter" id="Groceries" > Groceries</button>
+  <button class="btn filter" id="Cleaning and Household" > Cleaning and Household</button>
+  <button class="btn filter" id="Dairy Products"> Dairy Products</button>
+  <button class="btn filter" id="Personal Hygiene and Care">Personal Hygiene and Care </button>
+  <button class="btn filter" id="Food and Beverages"> Food and Beverages</button>
+</div>
+
+<div class="portion">
+
+</div>
+
+
+
+<div  style="margin:50px">
+  <div class="row">
+    {% for product in products %}
+      <div class="items col-lg-4 col-md-6 col-xl-3">
+        <img src="../../media/{{product.0.image_path}}" alt="Card image cap" style="width:15rem; height:15rem"><br>
+        <div style="display:block">
+          {{product.0.item_name}}
+          {% if product.0.market_price == product.0.price_per_unit or product.0.market_price == 0.0 %}
+              <p class="card-text" id='{{product.0.item_upc}}' style="display:block">&nbsp;&nbsp;Rs. {{product.0.price_per_unit}}/{{product.0.unit}}</p>
+          {% else %}
+            <p id='{{product.0.item_upc}}'><strike>{{product.0.market_price}}</strike>&nbsp; Rs.{{product.0.price_per_unit}}/{{product.0.unit}} Rs</p>
+          {% endif %}
+
+
+        </div>
+        {% if product|length > 1 %}
+        <select class="myclass" name="">
+          {% for items in product %}
+            <option value="{{product.0.item_upc}}" class = "option" id="{{items.item_upc}}" >{{items.unit}}</option>
+          {% endfor %}
+        </select><br>
+        {% endif %}
+        <a href="#" class="btn btn-dark">Add to cart</a>
+        </div>
+
+      {% endfor %}
+      </div>
+</div>
+
+
+
+
+  </div>
+
+</div>
+<br><br><br><br>
+<div class="footer">
+  <div class="footerText" style="color:white;text-align: center;">
+    <h2><br><br>THIS IS FOOTER</h2>
+  </div>
+</div>
+
+</body>
+</html>

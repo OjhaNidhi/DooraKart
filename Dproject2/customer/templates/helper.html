@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <div class="row">
+
+            {% for d in data %}
+                           {% comment %} <div class="col-lg-4 col-sm-6 col-xs-12">
+                             <a href="home/{{d.sub_category_name}}/"><img src="media/{{d.image_path}}" alt="" width="100px" height="100px"></a<br>
+                               <p>{{d.sub_category_name}}</p>
+                           </div> {% endcomment %}
+                           <div class="col-lg-4 col-md-6 col-xl-3 gallery"><a href="home/{{d.sub_category_name}}/"><img src="media/{{d.image_path}}" class="img-thumbnail" style="width:12em; height:12em"></a><div  style="display: block; padding:5px">{{d.sub_category_name}}</div></div>
+                           {% endfor %}
+                       </div>
+
+
+  </body>
+</html>

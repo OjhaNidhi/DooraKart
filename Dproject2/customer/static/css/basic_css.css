@@ -1,0 +1,61 @@
+#categoryHeading{
+text-align:center;
+font-size: 3.0em;
+border-style: double;
+border-color: red;
+}
+#im_gro{
+max-width: 100%;
+max-height: 100%;
+}
+#im_veg{
+max-width: 100%;
+max-height: 100%;
+}
+#im_food{
+max-width: 100%;
+max-height: 100%;
+}
+#im_dairy{
+max-width: 100%;
+max-height: 100%;
+}
+#im_fruit{
+max-width: 100%;
+max-height:15.0em;
+}
+#im_hygiene{
+max-width: 100%;
+max-height: 100%;
+}
+#im_cleaning{
+max-width: 100%;
+max-height: 100%;
+}
+div.gallery {
+  margin: 3px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 10px;
+  text-align: center;
+}
+#hi{
+  color: red;
+}
+
+.jumbotron{
+  background-image: url("E:/Project/Dproject/media/images/fruit-wallpaper-hd-1680x1050-325826.jpg");
+}

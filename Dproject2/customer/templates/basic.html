@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load  static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script  src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    {% block extra_js %}   {% endblock %}
+    <script src={% static "customer/js/basic_js.js" %}> </script>
+
+    <title>{% block title %} DooraKart  {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href={% static "customer/css/basic_css.css" %}>
+    {% block extra_css %}{% endblock %}
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light">
+      <a class="navbar-brand" id='hi' href="#">
+        <img src="media/images/D_Project.svg"  width="30" height="30" class="d-inline-block align-top" alt="DK">
+        <strong>DooraKart</strong>
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'customer:index' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Help</a>
+      </li>
+      <div class="btn-group">
+
+        <a class="nav-link" href="#" style="background-color:#faf8f5; radius:2px; border-radius:4px;margin-left:5px;">Categories</a>
+        <button onclick="categoryDrop()" type="button" class="btn btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:#bd939e; radius:2px; border-right-radius:4px;">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+          <div id="categoryDropdown" class="dropdown-menu">
+            <span class="container"><input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"></span>
+            <a class="dropdown-item" href="Vegetables">Vegetables</a>
+            <a class="dropdown-item" href="Fruits">Fruits</a>
+            <a class="dropdown-item" href="Groceries">Groceries</a>
+            <a class="dropdown-item" href="Dairy">Dairy Product</a>
+            <a class="dropdown-item" href="Cleaning and Household">Cleaning & Household</a>
+            <a class="dropdown-item" href="Hygiene and Personal Care">Personal Hygiene & Care</a>
+            <a class="dropdown-item" href="Food and Beverages">Food & Beverages</a>
+          </div>
+      </div>
+    </ul>
+    <ul class="navbar-nav navbar-right">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" onclick="profileDrop()" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="media/images/icons8-user-48.png" width="30" height="30" alt="Profile">
+          Profile
+        </a>
+        <div id="profileDropdown" class="dropdown-menu" aria-labelledby="dropdown04">
+          <a class="dropdown-item" href="#">Order History</a>
+          <a class="dropdown-item" href="#">Referral Code</a>
+          <a class="dropdown-item" href="#">Wallet</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span class="container">
+        <img src="media/images/icons8-fast-cart-64.png" width="30" height="30" alt="Cart">
+        <a class="nav-link " href="#">
+          <strong>का</strong>Rt
+        </a>
+        </span>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+{% block body %}
+
+<h1>{{ category }}</h1>
+
+{% endblock %}
+
+  </body>
+</html>
