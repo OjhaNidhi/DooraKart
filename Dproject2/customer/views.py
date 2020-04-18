@@ -10,6 +10,11 @@ from django.template import RequestContext
 from django.views.generic import TemplateView
 from django.db.models import Avg, Max, Min, Sum
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+import random
+
 from django.template import loader
 
 
@@ -80,3 +85,80 @@ def get_price(request):
 #         response_list.append(items)
 #     print(response_list)
 #     return HttpResponse(json.dumps(response_list))
+
+phone_otp = {}
+
+class sendOtp(APIView):
+
+    def post(self,request,format=None):
+        phoneNumber = request.data["phone_no"]
+        if phoneNumber:
+            phone = str(phoneNumber)
+            key = sendOtpToPhone(phone)
+            if key:
+                phone_otp[str(phone)] = str(key)
+                print(phone_otp)
+                return Response({
+                    'error' : 'false',
+                    'message' : 'OTP sent'
+                })
+
+        else:
+            return Response({
+                'error' : 'true',
+                'message' : 'Mobile Number not found'
+            })
+            
+class verifyOtp(APIView):
+
+    def post(self,request,format=None):
+        print(request.data)
+        phoneNumber = request.data["phone_no"]
+        otpRecieved = request.data["otp"]
+        if phoneNumber:
+            phone = str(phoneNumber)
+            otp = str(otpRecieved)
+            if phone:
+                if phone in phone_otp.keys():
+                    if otp:
+                        realOtp = phone_otp[str(phone)]
+                        if realOtp == otp:
+                            del phone_otp[str(phone)]
+                            return Response({
+                                'error' : 'false',
+                                'message' : 'OTP Valid'
+                            })
+                        else:
+                            del phone_otp[str(phone)]
+                            return Response({
+                                'error' : 'true',
+                                'message' : 'OTP invalid'
+                            })
+                        print(phone_otp)
+
+                    else:
+                        return Response({
+                            'error' : 'true',
+                            'message' : 'OTP not entered'
+                        })
+
+                else:
+                    return Response({
+                        'error' : 'true',
+                        'message' : 'OTP not present for the mobile number'
+                    })
+
+        else:
+            return Response({
+                'error' : 'true',
+                'message' : 'Mobile Number not entered'
+            })
+
+
+def sendOtpToPhone(phone):
+    if phone:
+        key = random.randint(999,9999)
+        print(key)
+        return key
+    else:
+        return False
